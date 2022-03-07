@@ -26,6 +26,8 @@ public class EchoServer {
 
         ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
         ExecutorService executorService = Executors.newCachedThreadPool();
+        Answer answer = new Answer("src/main/resources/associations.xml");
+
         for (int i = 0; i < 3; i++) {
             executorService.submit(() -> {
                 try (
@@ -33,14 +35,13 @@ public class EchoServer {
                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                     BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
                 ) {
-                    Answer answer = new Answer();
                     String inputLine;
                     while ((inputLine = in.readLine()) != null) {
                         if (inputLine.equals("close")) {
                             out.println("closed");
                             break;
                         }
-                        out.println(answer.getRandomAnswer(inputLine));
+                        out.println(answer.getWeightedAnswer(inputLine));
                     }
                 } catch (IOException e) {
                     System.out.println("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");

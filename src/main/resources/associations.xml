@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<associations>
+    <association word="привет">
+        <phrase weight="0.05" value="я пришёл к тебе с миром"/>
+        <phrase weight="0.15" value="добро пожаловать"/>
+        <phrase weight="0.15" value="пламенный привет"/>
+        <phrase weight="0.05" value="хай"/>
+        <phrase weight="0.1" value="добрый день"/>
+        <phrase weight="0.3" value="как дела"/>
+        <phrase weight="0.2" value="здравствуйте"/>
+    </association>
+
+    <association word="погода">
+        <phrase weight="0.1" value="солнце"/>
+        <phrase weight="0.1" value="солнечная погода"/>
+        <phrase weight="0.3" value="ветер"/>
+        <phrase weight="0.2" value="дождь"/>
+        <phrase weight="0.3" value="дождливая погода"/>
+    </association>
+</associations>
