@@ -33,13 +33,14 @@ public class EchoServer {
                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                     BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
                 ) {
+                    Answer answer = new Answer();
                     String inputLine;
                     while ((inputLine = in.readLine()) != null) {
                         if (inputLine.equals("close")) {
                             out.println("closed");
                             break;
                         }
-                        out.println(inputLine);
+                        out.println(answer.getRandomAnswer(inputLine));
                     }
                 } catch (IOException e) {
                     System.out.println("Exception caught when trying to listen on port " + portNumber + " or listening for a connection");
